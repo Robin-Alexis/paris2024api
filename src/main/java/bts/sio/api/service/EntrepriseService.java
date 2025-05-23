@@ -1,5 +1,6 @@
 package bts.sio.api.service;
 
+import bts.sio.api.model.Athlete;
 import bts.sio.api.model.Entreprise;
 import bts.sio.api.repository.EntrepriseRepository;
 import lombok.Data;
@@ -17,5 +18,11 @@ public class EntrepriseService {
 
     public Iterable<Entreprise> getEntreprises() {
         return entrepriseRepository.findAll();
+    }
+
+    public Entreprise saveEntreprise(Entreprise entreprise) {
+        Entreprise savedEntreprise = entrepriseRepository.save(entreprise);
+        System.out.println("service : " + entreprise);
+        return savedEntreprise;
     }
 }
